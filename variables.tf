@@ -1,9 +1,37 @@
+variable "sg-name" {
+  default = "terraform-sg-all"
+}
+
+variable "instance_names" {
+  type = list
+  default = [
+    "mongodb",
+    "redis",
+    # "mysql",
+    # "rabbitmq",
+    "catalogue",
+    "user",
+    "cart",
+    # "shipping",
+    # "payment",
+    # "dispatch",
+    "frontend"]
+}
+
 variable "ami_id" {
     type = string
   default = "ami-0220d79f3f480ecf5"
 }
 
-variable "instance_type" {
-    type = string
-  default = "t3.micro"
+variable "zone_id" {
+  default = "Z08956962QNCVIB5UOVAS"
+}
+
+variable "domain_name" {
+  default = "cadb.online"
+}
+
+variable "isProd" {
+  type = bool
+  default = true
 }
