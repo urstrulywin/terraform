@@ -4,18 +4,9 @@ variable "sg-name" {
 
 variable "instance_names" {
   type = list
-  default = [
-    "mongodb",
-    "redis",
-    # "mysql",
-    # "rabbitmq",
-    "catalogue",
-    "user",
-    "cart",
-    # "shipping",
-    # "payment",
-    # "dispatch",
-    "frontend"]
+  default = [ "mongodb", "redis", "catalogue", "user", "cart", "frontend"
+    # "mysql", "rabbitmq", "shipping", "payment", "dispatch",
+    ]
 }
 
 variable "ami_id" {
