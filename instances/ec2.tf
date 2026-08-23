@@ -1,9 +1,11 @@
 resource "aws_instance" "ec2" {
-  #count = 11 # count.index is a special variable given by terraform
+  #count = 11 
   count = length(var.instance_names)
   ami           = var.ami_id 
-  instance_type = local.instance_type[var.instance_names[count.index]]
+  
+  instance_type = local.instance_type[var.instance_names[count.index]] # count.index is a special variable given by terraform
   #local.instance_type is a map, so we can use the instance name to get the instance type
+
   security_groups = [aws_security_group.terraform-sg.name]
   tags = {
     Name = var.instance_names[count.index]
