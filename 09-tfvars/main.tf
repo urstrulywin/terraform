@@ -11,7 +11,7 @@ resource "aws_instance" "ec2" {
 resource "aws_route53_record" "r53-record" {
   for_each = aws_instance.ec2
   zone_id = var.zone_id
-  name    = each.key == "frontend" ? "${var.domain_name}" : "${each.key}.${var.domain_name}"
+  name    = startswith(each.key, "frontend") && var.environment == "prod" ? "${var.domain_name}" : "${each.key}.${var.domain_name}"
   type    = "A"
   ttl     = 1
   records = [startswith(each.key, "frontend") ? each.value.public_ip : each.value.private_ip ]

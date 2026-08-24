@@ -3,3 +3,4 @@ instance_names = {
     catalogue-dev = "t3.micro"
     frontend-dev = "t3.micro"
 }
+environment = "dev"

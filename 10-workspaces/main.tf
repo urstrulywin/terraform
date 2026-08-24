@@ -4,6 +4,6 @@ resource "aws_instance" "ec2" {
   instance_type = each.value
 
   tags = {
-    Name = each.key
+    Name = "${terraform.workspace}-${each.key}"
   }
 }
